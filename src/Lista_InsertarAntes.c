@@ -16,6 +16,7 @@ extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista
             nuevo->anterior=elemento->anterior;
             nuevo->siguiente=*elemento;
             elemento->anterior=*nuevo;
+            lista->numeroElementos++;
             return 1;
         }
         else{
@@ -25,6 +26,7 @@ extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista
             nuevo->anterior=elemento->anterior;
             nuevo->siguiente=*elemento;
             elemento->anterior=*nuevo;
+            lista->numeroElementos++;
             return 1;
         }
     }
