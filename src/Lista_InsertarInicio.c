@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "miLista.h"
+
 extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
 	ElementoLista *nuevo_elemento=(ElementoLista *) malloc (sizeof (ElementoLista));
 	//memset(nuevo_elemento,0,sizeof(ElementeLista));
