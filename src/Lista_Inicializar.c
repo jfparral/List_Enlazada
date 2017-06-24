@@ -1,16 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "miLista.h"
 
 extern int Lista_Inicializar(ListaEnlazada *lista){
-	//lista=NULL;
-	
-	//if (lista!=NULL){ una lista nueva siempre viene con NULL aqui es que se la inicializa
-	if(lista->ancla!=NULL)// solo se da formato si la lista esta vacia
-        lista =(ListaEnlazada*) malloc(sizeof(ListaEnlazada));
+
+	if(sizeof(lista->ancla)!=sizeof(ElementoLista))
+	{// solo se da formato si la lista esta vacia
+		ElementoLista *ancla1;
+		memset(&ancla1,0,sizeof(ElementoLista));
+		lista->ancla=(ElementoLista) *ancla1;
+		ancla1->objeto=(void *)0;
+		ancla1->anterior= NULL;
+		ancla1->siguiente= NULL;
 		lista->numeroElementos=0;
-		lista->ancla=NULL;
 		return TRUE;
 	}else{
-        //printf( "No hay memoria disponible!\n");
 		printf( "Lista ya inicializada!\n");
 		return FALSE;
 	} 
