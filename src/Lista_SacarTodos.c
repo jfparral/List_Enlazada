@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "miLista.h"
 
 extern void Lista_SacarTodos(ListaEnlazada *lista)
@@ -9,7 +7,7 @@ extern void Lista_SacarTodos(ListaEnlazada *lista)
     for(int i=0;i<lista->numeroElementos;i++)
     {
         tmp=tmp->siguiente;
-        free tmp->anterior;
+        free(tmp->anterior);
     }
     lista->ancla=NULL;
     lista->numeroElementos=0;
