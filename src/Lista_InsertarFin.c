@@ -8,9 +8,11 @@ extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto)
     nuevo->objeto=objeto;
     if(lista->ancla==NULL)
     {
-        lista->ancla->objeto=objeto;
+        //lista->ancla->objeto=objeto;
         lista->ancla->anterior=nuevo;
         lista->ancla->siguiente=nuevo;
+        nuevo->anterior=nuevo;
+        nuevo->siguiente=nuevo;
         lista->numeroElementos++;
         return TRUE;
     }
@@ -20,7 +22,7 @@ extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto)
         tmp=lista->ancla->anterior;
         tmp->siguiente=nuevo;
         nuevo->anterior=tmp;
-        nuevo->siguiente=lista->ancla;
+        nuevo->siguiente=lista->ancla->siguiente;
         lista->ancla->anterior=nuevo;
         lista->numeroElementos++;
         return TRUE;
