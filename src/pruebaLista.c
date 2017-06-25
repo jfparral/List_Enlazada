@@ -81,9 +81,9 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 		for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)) {
 
 			if (j == indiceAleatorio) {
-#ifdef IMPRIMIR_LISTA
-				printf("%lu\n", (long)elem->objeto);
-#endif
+			#ifdef IMPRIMIR_LISTA
+							printf("%lu\n", (long)elem->objeto);
+			#endif
 				break;
 			}
 

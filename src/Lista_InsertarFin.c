@@ -1,8 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "miLista.h"
 
 extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto)
 {
-    ElementoLista nuevo=(ElementoLista *)malloc (sizeof(ElementoLista *));
+    ElementoLista *nuevo=malloc (sizeof(ElementoLista));
     nuevo->objeto=objeto;
     if(lista->ancla==NULL)
     {
