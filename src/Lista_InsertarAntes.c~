@@ -1,7 +1,6 @@
 #include "miLista.h"
-#include <stdlib.h>
 
-extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLista *elemento){
+extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista *elemento){
 	int i;
 	ElementoLista *actual = (ElementoLista*)malloc(sizeof(ElementoLista));
 	ElementoLista *nuevo_elemento = (ElementoLista*)malloc(sizeof(ElementoLista));
@@ -9,18 +8,18 @@ extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLis
 	nuevo_elemento->objeto = objeto;
 	for (i = 0; i <= lista->numeroElementos; i++){
 		if (actual == elemento){
-			ElementoLista *next = (ElementoLista*)malloc(sizeof(ElementoLista));
-			next = actual->siguiente;
-			actual->siguiente = nuevo_elemento;
-			nuevo_elemento->anterior = actual;
-			nuevo_elemento->siguiente = next;
-			next->anterior = nuevo_elemento;
+			ElementoLista *ant = (ElementoLista*)malloc(sizeof(ElementoLista));
+			ant = actual->anterior;
+			ant->siguiente = nuevo_elemento;
+			nuevo_elemento->anterior = ant;
+			nuevo_elemento->siguiente = actual;
+			actual->anterior = nuevo_elemento;
 			lista->numeroElementos++;
 			//printf("%d\n", i);
 			return 1;
 		}else{
-			if (actual->siguiente == &lista->ancla){
-				Lista_InsertarFin(lista,objeto);
+			if (actual->anterior == &lista->ancla){
+				Lista_InsertarInicio(lista,objeto);
 				return 1;
 			}
 		}
@@ -29,3 +28,4 @@ extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLis
 	}
 	return 0;
 }
+

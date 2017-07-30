@@ -1,5 +1,4 @@
 #include "miLista.h"
-#include <stdlib.h>
 
 extern void Lista_SacarTodos(ListaEnlazada *lista){				//vaciara la lista
 	//printf("%d\n", lista->numeroElementos);

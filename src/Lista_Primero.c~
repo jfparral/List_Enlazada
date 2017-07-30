@@ -1,6 +1,6 @@
-#include "miLista.h"
+#include <stdio.h>
 #include <stdlib.h>
-
+#include "miLista.h"
 
 extern ElementoLista *Lista_Primero(ListaEnlazada *lista){
 	ElementoLista *tmp = &lista->ancla;					//se crea un elemento temporal y se le asigna la direccion de memoria del ancla

@@ -1,5 +1,4 @@
 #include "miLista.h"
-#include <stdlib.h>
 
 extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){                      //se realiza lo mismo de la funcion anterior solo que ahora al principio
 	ElementoLista *nuevo_elemento = (ElementoLista*)malloc(sizeof(ElementoLista));
